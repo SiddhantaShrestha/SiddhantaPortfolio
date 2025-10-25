@@ -116,7 +116,7 @@ export const Footer = () => {
           <div>
             <h4 className="mb-3 text-sm font-semibold">Built With</h4>
             <div className="flex flex-wrap gap-2">
-              {["React", "Tailwind CSS", "Vite"].map((tag) => (
+              {["React", "Tailwind CSS", "Vite", "Formspree"].map((tag) => (
                 <span
                   key={tag}
                   className="rounded-full border border-border bg-background px-3 py-1 text-xs text-foreground/80"
