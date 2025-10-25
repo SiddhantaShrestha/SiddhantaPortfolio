@@ -27,7 +27,7 @@ const projects = [
     description:
       "Full MERN web app combining recipes, blogs, e-commerce, admin panel, and payments.",
     image: "/projects/RecipeNest.png",
-    tags: ["MongoDB", "Express", "React", "Node.js", "Stripe"],
+    tags: ["MongoDB", "Express", "React", "Node.js", "eSewa"],
     demoUrl: "https://recipenest-nepal.onrender.com/",
     githubUrl: "https://github.com/SiddhantaShrestha/RecipeNest-Nepal",
   },
