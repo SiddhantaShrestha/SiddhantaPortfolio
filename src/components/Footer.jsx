@@ -21,12 +21,97 @@ export const Footer = () => {
   ];
 
   return (
-    <footer className="relative mt-24 border-t border-border bg-card/60">
+    <footer className="relative mt-12 border-t border-border bg-card/60">
       {/* top gradient line */}
       <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
 
-      <div className="container py-12 px-4">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="container px-4 py-8 md:py-12">
+        {/* ---------- Mobile: compact ---------- */}
+        <div className="md:hidden space-y-6">
+          {/* Brand / tiny blurb */}
+          <div className="space-y-2">
+            <a href="#hero" className="inline-flex items-center gap-2">
+              <span className="text-lg font-bold">
+                <span className="text-glow">Siddhanta</span>{" "}
+                <span className="text-primary">Portfolio</span>
+              </span>
+            </a>
+            <p className="text-xs leading-relaxed text-foreground/80">
+              Full-stack dev focused on clean code, performance & delightful UX.
+            </p>
+
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="rounded-full bg-primary/10 px-2.5 py-0.5 text-[10px] text-primary">
+                Open to opportunities
+              </span>
+              <a
+                href="/cv/Siddhanta-Shrestha-CV.pdf"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1 text-xs text-foreground/80 hover:text-primary transition-colors"
+              >
+                <ExternalLink size={14} />
+                View CV
+              </a>
+            </div>
+          </div>
+
+          {/* Quick links (2 cols) */}
+          <div>
+            <h4 className="mb-2 text-sm font-semibold">Quick Links</h4>
+            <ul className="grid grid-cols-2 gap-y-2">
+              {links.map((l) => (
+                <li key={l.href}>
+                  <a
+                    href={l.href}
+                    className="text-sm text-foreground/80 hover:text-primary transition-colors"
+                  >
+                    {l.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact + socials (tight) */}
+          <div className="space-y-3">
+            <h4 className="text-sm font-semibold">Contact</h4>
+            <ul className="space-y-2">
+              <li className="flex items-center gap-2 text-sm">
+                <Mail className="h-4 w-4 text-primary" />
+                <a
+                  href="mailto:siddhanta.work@gmail.com"
+                  className="text-foreground/80 hover:text-primary transition-colors"
+                >
+                  siddhanta.work@gmail.com
+                </a>
+              </li>
+              <li className="flex items-center gap-2 text-sm">
+                <MapPin className="h-4 w-4 text-primary" />
+                <span className="text-foreground/80">Thasikhel, Lalitpur</span>
+              </li>
+            </ul>
+            <div className="flex items-center gap-4">
+              <a
+                href="https://github.com/SiddhantaShrestha"
+                target="_blank"
+                className="text-foreground/80 hover:text-primary transition-colors"
+              >
+                <Github className="h-5 w-5" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/siddhanta-shrestha-321207286/"
+                target="_blank"
+                className="text-foreground/80 hover:text-primary transition-colors"
+              >
+                <Linkedin className="h-5 w-5" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* ---------- Desktop / Tablet: full layout ---------- */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-10">
           {/* Brand / Blurb */}
           <div className="space-y-4">
             <a href="#hero" className="inline-flex items-center gap-2">
@@ -134,16 +219,16 @@ export const Footer = () => {
         </div>
 
         {/* Divider */}
-        <div className="my-8 h-px w-full bg-border/60" />
+        <div className="my-6 md:my-8 h-px w-full bg-border/60" />
 
         {/* Bottom Bar */}
-        <div className="flex flex-wrap items-center justify-between gap-4">
-          <p className="text-sm text-muted-foreground">
+        <div className="flex flex-wrap items-center justify-between gap-3 md:gap-4">
+          <p className="text-xs md:text-sm text-muted-foreground">
             &copy; {year} SiddhantaShrestha — Crafted with{" "}
             <Heart className="inline-block h-3 w-3 text-primary" /> and coffee.
           </p>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3 md:gap-4">
             <a
               href="https://github.com/SiddhantaShrestha"
               target="_blank"
