@@ -36,7 +36,7 @@ export const AboutSection = () => {
               </a>
 
               <a
-                href="/cv/SiddhantaShrestha-CV.pdf"
+                href="/cv/SiddhantaShrestha.pdf"
                 download="Siddhanta-Shrestha-CV.pdf"
                 className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300"
               >
@@ -44,7 +44,7 @@ export const AboutSection = () => {
               </a>
 
               <a
-                href="/cv/Siddhanta-Shrestha-CV.pdf"
+                href="/cv/SiddhantaShrestha.pdf"
                 target="_blank"
                 rel="noreferrer"
                 className="px-6 py-2 rounded-full border border-primary/40 text-primary/80 hover:bg-primary/10"

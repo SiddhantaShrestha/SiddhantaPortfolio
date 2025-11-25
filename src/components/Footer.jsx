@@ -18,6 +18,7 @@ export const Footer = () => {
     { label: "Skills", href: "#skills" },
     { label: "Projects", href: "#projects" },
     { label: "Contact", href: "#contact" },
+    { label: "View CV", href: "/cv/SiddhantaShrestha.pdf", target: "_blank" },
   ];
 
   return (
@@ -45,7 +46,7 @@ export const Footer = () => {
                 Open to opportunities
               </span>
               <a
-                href="/cv/Siddhanta-Shrestha-CV.pdf"
+                href="/cv/SiddhantaShrestha.pdf"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-1 text-xs text-foreground/80 hover:text-primary transition-colors"
@@ -64,6 +65,8 @@ export const Footer = () => {
                 <li key={l.href}>
                   <a
                     href={l.href}
+                    target={l.target || "_self"}
+                    rel={l.target === "_blank" ? "noreferrer" : undefined}
                     className="text-sm text-foreground/80 hover:text-primary transition-colors"
                   >
                     {l.label}
@@ -130,7 +133,7 @@ export const Footer = () => {
                 Open to opportunities
               </span>
               <a
-                href="/cv/Siddhanta-Shrestha-CV.pdf"
+                href="/cv/SiddhantaShrestha.pdf"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-1 text-xs text-foreground/80 hover:text-primary transition-colors"
@@ -149,6 +152,8 @@ export const Footer = () => {
                 <li key={l.href}>
                   <a
                     href={l.href}
+                    target={l.target || "_self"}
+                    rel={l.target === "_blank" ? "noreferrer" : undefined}
                     className="text-sm text-foreground/80 hover:text-primary transition-colors"
                   >
                     {l.label}
