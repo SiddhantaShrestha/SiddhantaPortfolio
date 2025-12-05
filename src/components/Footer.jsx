@@ -16,6 +16,7 @@ export const Footer = () => {
     { label: "Home", href: "#hero" },
     { label: "About", href: "#about" },
     { label: "Skills", href: "#skills" },
+    { label: "Experience", href: "#experience" },
     { label: "Projects", href: "#projects" },
     { label: "Contact", href: "#contact" },
     { label: "View CV", href: "/cv/SiddhantaShrestha.pdf", target: "_blank" },
