@@ -10,8 +10,6 @@ import {
 } from "lucide-react";
 
 export const Footer = () => {
-  const year = new Date().getFullYear();
-
   const links = [
     { label: "Home", href: "#hero" },
     { label: "About", href: "#about" },
@@ -19,7 +17,7 @@ export const Footer = () => {
     { label: "Experience", href: "#experience" },
     { label: "Projects", href: "#projects" },
     { label: "Contact", href: "#contact" },
-    { label: "View CV", href: "/cv/SiddhantaShrestha.pdf", target: "_blank" },
+    { label: "View CV", href: "/cv/SiddhantaShresthaCV.pdf", target: "_blank" },
   ];
 
   return (
@@ -52,7 +50,7 @@ export const Footer = () => {
               </span>
 
               <a
-                href="/cv/SiddhantaShrestha.pdf"
+                href="/cv/SiddhantaShresthaCV.pdf"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-1 text-xs text-foreground/80 hover:text-primary transition-colors"
@@ -144,7 +142,7 @@ export const Footer = () => {
                 Open to opportunities
               </span>
               <a
-                href="/cv/SiddhantaShrestha.pdf"
+                href="/cv/SiddhantaShresthaCV.pdf"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-1 text-xs text-foreground/80 hover:text-primary transition-colors"
@@ -240,7 +238,7 @@ export const Footer = () => {
         {/* Bottom Bar */}
         <div className="flex flex-col items-center justify-center gap-3 text-center md:flex-row md:justify-between md:gap-4">
           <p className="text-xs md:text-sm text-muted-foreground">
-            &copy; {year} SiddhantaShrestha — Crafted with{" "}
+            &copy; 2026 Siddhanta Shrestha. Crafted with{" "}
             <Heart className="inline-block h-3 w-3 text-primary" /> and coffee.
           </p>
 

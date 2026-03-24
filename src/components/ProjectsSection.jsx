@@ -16,6 +16,7 @@ const professionalProjects = [
       "AI/LLM",
     ],
     demoUrl: "https://recruitnepal.com",
+    githubUrl: "https://github.com/recruitnepal",
     role: "Full-Stack Developer (Founding Team)",
   },
 ];
@@ -25,7 +26,7 @@ const projects = [
     id: 1,
     title: "Realtime Chat App",
     description:
-      "Socket.io chat with typing indicators, sound notifications, DMs & groups.",
+      "Built a real-time chat platform with direct messaging, typing indicators, sound alerts, and global state management.",
     image: "/projects/realtimechatapp.png",
     tags: ["React", "Express", "Socket.io", "Zustand"],
     demoUrl: "https://chat-app-vx2yk.sevalla.app/",
@@ -35,7 +36,7 @@ const projects = [
     id: 2,
     title: "Google Drive Clone",
     description:
-      "Next.js + Appwrite storage with upload, folders, and shareable links.",
+      "Built a cloud storage app with upload, folder management, shareable links, and secure user-level file access.",
     image: "/projects/storeit.png",
     tags: ["Next.js", "Appwrite", "TailwindCSS"],
     demoUrl: "https://google-drive-clone-woad.vercel.app/",
@@ -43,9 +44,9 @@ const projects = [
   },
   {
     id: 3,
-    title: "RecipeNest Nepal",
+    title: "Recipe Platform (MERN Stack)",
     description:
-      "Full MERN web app combining recipes, blogs, e-commerce, admin panel, and payments.",
+      "Developed a full-stack recipe platform with personalized recommendations, secure auth with RBAC, subscriptions, payments, and admin/vendor dashboards.",
     image: "/projects/RecipeNest.png",
     tags: ["MongoDB", "Express", "React", "Node.js", "eSewa"],
     demoUrl: "https://recipenest-nepal.onrender.com/",
@@ -79,6 +80,8 @@ export const ProjectsSection = () => {
                 <img
                   src={project.image}
                   alt={project.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <span className="absolute top-3 left-3 bg-primary text-white text-xs px-3 py-1 rounded-full">
@@ -107,13 +110,30 @@ export const ProjectsSection = () => {
                   ))}
                 </div>
 
-                <a
-                  href={project.demoUrl}
-                  target="_blank"
-                  className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                >
-                  <ExternalLink size={20} />
-                </a>
+                <ul className="space-y-1 text-sm text-muted-foreground mb-3 text-left">
+                  <li>Technologies: {project.tags.join(", ")}</li>
+                </ul>
+
+                <div className="flex items-center gap-4">
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1 text-foreground/80 hover:text-primary transition-colors duration-300"
+                  >
+                    <Github size={18} />
+                    GitHub
+                  </a>
+                  <a
+                    href={project.demoUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1 text-foreground/80 hover:text-primary transition-colors duration-300"
+                  >
+                    <ExternalLink size={18} />
+                    Live Demo
+                  </a>
+                </div>
               </div>
             </div>
           ))}
@@ -132,6 +152,8 @@ export const ProjectsSection = () => {
                 <img
                   src={project.image}
                   alt={project.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
@@ -153,21 +175,29 @@ export const ProjectsSection = () => {
                   {project.description}
                 </p>
 
-                <div className="flex space-x-3">
+                <ul className="space-y-1 text-sm text-muted-foreground mb-3 text-left">
+                  <li>Technologies: {project.tags.join(", ")}</li>
+                </ul>
+
+                <div className="flex space-x-4">
                   <a
                     href={project.demoUrl}
                     target="_blank"
-                    className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1 text-foreground/80 hover:text-primary transition-colors duration-300"
                   >
-                    <ExternalLink size={20} />
+                    <ExternalLink size={18} />
+                    Live Demo
                   </a>
 
                   <a
                     href={project.githubUrl}
                     target="_blank"
-                    className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1 text-foreground/80 hover:text-primary transition-colors duration-300"
                   >
-                    <Github size={20} />
+                    <Github size={18} />
+                    GitHub
                   </a>
                 </div>
               </div>

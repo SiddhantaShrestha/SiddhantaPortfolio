@@ -4,25 +4,28 @@ const experiences = [
   {
     role: "Junior Full Stack Developer & Tech Support",
     company: "Intern Nepal / Recruit Nepal",
-    period: "2025",
+    period: "2025 - Present",
     location: "Lalitpur, Nepal (Hybrid)",
     points: [
-      "Build responsive, production-ready UIs with React and Tailwind CSS for Recruit Nepal's live platform.",
-      "Connect frontend features to REST APIs and ship end-to-end user flows across the stack.",
-      "Collaborate with the partner company on planning, breaking down tasks, and prioritising features.",
-      "Assist with deployments, including hosting, domain configuration, and environment setup.",
+      "Built and maintained responsive frontend interfaces using React.js, Next.js, and Tailwind CSS for a live product.",
+      "Developed and integrated RESTful APIs with Node.js and Express for key recruiter and candidate flows.",
+      "Contributed to Recruit Nepal, a live recruitment platform used by 1000+ active users across Nepal.",
+      "Implemented core features including job listings, candidate workflows, and recruiter dashboards.",
+      "Handled deployment and production setup tasks such as hosting, domain configuration, and environment setup.",
+      "Improved UI performance through iterative optimizations, reducing load time by around 20%.",
     ], // derived from CV :contentReference[oaicite:0]{index=0}
   },
   {
     role: "Project Management & Tech Support Intern",
     company: "Intern Nepal / Recruit Nepal",
-    period: "Aug 2024 - Feb 2025",
+    period: "2024 - 2025",
     location: "Lalitpur, Nepal",
     points: [
-      "Coordinated a recruitment CRM project over ~6 months, from initiation to MVP delivery.",
-      "Used Trello to manage workflows, track progress, and keep team responsibilities clear.",
-      "Applied Agile practices (sprint planning, execution, retros) to keep the project on schedule.",
-      "Maintained project documentation like charters and meeting notes for transparency.",
+      "Led a recruitment CRM development project over 6 months from planning through MVP delivery.",
+      "Managed tasks and team workflows with Trello to improve visibility, ownership, and productivity.",
+      "Applied Agile practices including sprint planning, execution, and retrospectives to keep releases on track.",
+      "Prepared and maintained project documentation, including project charters and meeting reports.",
+      "Coordinated between technical and non-technical stakeholders for smooth project execution.",
     ], // derived from CV :contentReference[oaicite:1]{index=1}
   },
   {
@@ -31,8 +34,9 @@ const experiences = [
     period: "Feb 2024 - Jun 2024",
     location: "New Baneshwor, Kathmandu",
     points: [
-      "Supported customer relationships by addressing inquiries and assisting with onboarding.",
-      "Gathered customer feedback and collaborated with the team to enhance satisfaction and retention.",
+      "Supported customer onboarding and handled user queries to improve overall customer experience.",
+      "Collected customer feedback and collaborated with internal teams to improve service quality.",
+      "Contributed to customer satisfaction and retention initiatives through timely issue resolution.",
     ], // derived from CV :contentReference[oaicite:2]{index=2}
   },
 ];

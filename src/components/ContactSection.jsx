@@ -1,4 +1,4 @@
-import { Instagram, Linkedin, Mail, MapPin, Phone, Send } from "lucide-react";
+import { Linkedin, Mail, MapPin, Phone, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
@@ -6,10 +6,12 @@ import { cn } from "@/lib/utils";
 export const ContactSection = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitMessage("");
 
     const form = e.currentTarget;
     const formData = new FormData(form);
@@ -38,13 +40,16 @@ export const ContactSection = () => {
           title: "Message sent!",
           description: "Thank you for your message. I'll get back to you soon.",
         });
+        setSubmitMessage("Your message has been sent successfully!");
         form.reset();
       } else {
         let msg = "Something went wrong. Please try again.";
         try {
           const data = await res.json();
           if (data?.errors?.[0]?.message) msg = data.errors[0].message;
-        } catch {}
+        } catch {
+          // Keep default error message when response body is unavailable.
+        }
         toast({ title: "Oops!", description: msg });
       }
     } catch {
@@ -66,7 +71,7 @@ export const ContactSection = () => {
 
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
           Have a project in mind or want to collaborate? Feel free to reach out.
-          I'm always open to discussing new opportunities.
+          I&apos;m always open to discussing new opportunities.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -213,6 +218,10 @@ export const ContactSection = () => {
                 {isSubmitting ? "Sending..." : "Send Message"}
                 <Send size={16} />
               </button>
+
+              {submitMessage && (
+                <p className="text-sm text-primary text-center">{submitMessage}</p>
+              )}
             </form>
           </div>
         </div>

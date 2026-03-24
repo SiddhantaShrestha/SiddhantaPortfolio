@@ -6,28 +6,21 @@ export const HeroSection = () => {
       id="hero"
       className="relative min-h-screen flex flex-col items-center justify-center px-4"
     >
-      <div className="container max-w-4xl mx-auto text-center z-10">
+      <div className="hero-text container max-w-4xl mx-auto text-center z-10">
         <div className="space-y-6">
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-            <span className="opacity-0 animate-fade-in"> Hi, I'm</span>
-            <span className="text-primary opacity-0 animate-fade-in-delay-1">
-              {" "}
-              Siddhanta
-            </span>
-            <span className="text-gradient ml-2 opacity-0 animate-fade-in-delay-2">
-              {" "}
-              Shrestha
-            </span>
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight opacity-0 animate-fade-in">
+            Hi, I&apos;m <span className="text-primary">Siddhanta Shrestha</span>.
           </h1>
 
-          <p className="text-lg md:text-xl text-muted-foreground max-2-2xl mx-auto opacity-0 animate-fade-in-delay-3">
-            Full-stack developer with a focus on building responsive, efficient,
-            and modern web apps. I enjoy solving problems through code and
-            learning new technologies every day.
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto opacity-0 animate-fade-in-delay-3">
+            I&apos;m a full-stack developer who specializes in building
+            responsive, efficient, and modern web applications. I craft clean,
+            maintainable code that powers intuitive user experiences. Let&apos;s
+            collaborate and bring your ideas to life!
           </p>
 
           <div className="pt-4 opacity-0 animate-fade-in-delay-4">
-            <a href="#projects" className="cosmic-button">
+            <a href="#projects" className="cosmic-button cta-button">
               View My Work
             </a>
           </div>
