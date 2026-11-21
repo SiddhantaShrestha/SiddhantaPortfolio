@@ -1,221 +1,90 @@
-import { ArrowRight, ExternalLink, Github } from "lucide-react";
+import { ArrowUpRight, Github } from "lucide-react";
+import { RetrievalComparison } from "./RetrievalComparison";
 
-const professionalProjects = [
-  {
-    id: "recruit-nepal",
-    title: "Recruit Nepal – AI-Powered Recruitment Platform",
-    description:
-      "A full-scale recruitment platform featuring AI-powered CV scoring, JD–CV matching, Easy Apply, recruiter dashboards, automated emails, and CV builder.",
-    image: "/projects/recruitnepal.png", // add to /public/projects
-    tags: [
-      "Next.js",
-      "TypeScript",
-      "Node.js",
-      "Express",
-      "PostgreSQL",
-      "AI/LLM",
-    ],
-    demoUrl: "https://recruitnepal.com",
-    githubUrl: "https://github.com/recruitnepal",
-    role: "Full-Stack Developer (Founding Team)",
-  },
-];
+const linkStyle = "inline-flex items-center gap-1.5 rounded-sm font-medium text-primary underline decoration-primary/50 underline-offset-4 hover:decoration-current";
+const applicantReviewImage = "/projects/recruit-nepal-applicant-review.png";
 
-const projects = [
-  {
-    id: 1,
-    title: "Realtime Chat App",
-    description:
-      "Built a real-time chat platform with direct messaging, typing indicators, sound alerts, and global state management.",
-    image: "/projects/realtimechatapp.png",
-    tags: ["React", "Express", "Socket.io", "Zustand"],
-    demoUrl: "https://chat-app-vx2yk.sevalla.app/",
-    githubUrl: "https://github.com/SiddhantaShrestha/Chat-app",
-  },
-  {
-    id: 2,
-    title: "Google Drive Clone",
-    description:
-      "Built a cloud storage app with upload, folder management, shareable links, and secure user-level file access.",
-    image: "/projects/storeit.png",
-    tags: ["Next.js", "Appwrite", "TailwindCSS"],
-    demoUrl: "https://google-drive-clone-woad.vercel.app/",
-    githubUrl: "https://github.com/SiddhantaShrestha/Google_Drive_clone",
-  },
-  {
-    id: 3,
-    title: "Recipe Platform (MERN Stack)",
-    description:
-      "Developed a full-stack recipe platform with personalized recommendations, secure auth with RBAC, subscriptions, payments, and admin/vendor dashboards.",
-    image: "/projects/RecipeNest.png",
-    tags: ["MongoDB", "Express", "React", "Node.js", "eSewa"],
-    demoUrl: "https://recipenest-nepal.onrender.com/",
-    githubUrl: "https://github.com/SiddhantaShrestha/RecipeNest-Nepal",
-  },
-];
-
-export const ProjectsSection = () => {
-  return (
-    <section id="projects" className="py-24 px-4 relative">
-      <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-          Featured <span className="text-primary">Projects</span>
-        </h2>
-
-        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          A mix of professional and personal projects, built with modern
-          technologies and a focus on clean, scalable architecture.
-        </p>
-
-        {/* PROFESSIONAL PROJECT SECTION */}
-        <h3 className="text-xl font-semibold mb-6">Professional Project</h3>
-
-        <div className="max-w-3xl mx-auto mb-12">
-          {professionalProjects.map((project) => (
-            <div
-              key={project.id}
-              className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover border border-border"
-            >
-              <div className="h-48 overflow-hidden relative">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <span className="absolute top-3 left-3 bg-primary text-white text-xs px-3 py-1 rounded-full">
-                  Professional
-                </span>
-              </div>
-
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-1">{project.title}</h3>
-                <p className="text-xs text-muted-foreground mb-2">
-                  {project.role}
-                </p>
-
-                <p className="text-muted-foreground text-sm mb-4">
-                  {project.description}
-                </p>
-
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <ul className="space-y-1 text-sm text-muted-foreground mb-3 text-left">
-                  <li>Technologies: {project.tags.join(", ")}</li>
-                </ul>
-
-                <div className="flex items-center gap-4">
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-1 text-foreground/80 hover:text-primary transition-colors duration-300"
-                  >
-                    <Github size={18} />
-                    GitHub
-                  </a>
-                  <a
-                    href={project.demoUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-1 text-foreground/80 hover:text-primary transition-colors duration-300"
-                  >
-                    <ExternalLink size={18} />
-                    Live Demo
-                  </a>
-                </div>
-              </div>
-            </div>
-          ))}
+export const ProjectsSection = () => (
+  <section id="projects" className="relative mx-auto max-w-6xl px-6 py-12 text-left sm:px-10">
+    <h2 className="mb-6 text-3xl font-bold tracking-tight sm:text-4xl">Selected work</h2>
+    <article id="recruit-nepal" className="overflow-hidden rounded-2xl border bg-card md:grid md:grid-cols-2">
+      <div className="flex items-center bg-linear-to-br from-violet-100 via-violet-200 to-indigo-300 p-4 sm:p-8">
+        <img className="w-full rounded-lg border border-black/10 shadow-xl" src="/projects/recruitnepal.png" alt="Recruit Nepal homepage with job search and candidate sign-up" />
+      </div>
+      <div className="space-y-4 p-6 sm:p-8">
+        <p className="text-sm font-semibold text-primary">Professional work · Full-stack developer</p>
+        <h3 className="text-3xl font-bold">Recruit Nepal</h3>
+        <p className="text-muted-foreground">Recruit Nepal connects candidates and employers across Nepal. As of November 2026, the platform has 7,597 unique users.</p>
+        <div>
+          <h4 className="mb-1 font-semibold">CV processing</h4>
+          <p className="text-muted-foreground">I worked with Azure AI Document Intelligence to extract information from CVs and refined the prompts used in recruitment workflows.</p>
         </div>
-
-        {/* PERSONAL PROJECTS */}
-        <h3 className="text-xl font-semibold mb-6">Personal Projects</h3>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, key) => (
-            <div
-              key={key}
-              className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
-            >
-              <div className="h-48 overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-              </div>
-
-              <div className="p-6">
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <h3 className="text-xl font-semibold mb-1">{project.title}</h3>
-                <p className="text-muted-foreground text-sm mb-4">
-                  {project.description}
-                </p>
-
-                <ul className="space-y-1 text-sm text-muted-foreground mb-3 text-left">
-                  <li>Technologies: {project.tags.join(", ")}</li>
-                </ul>
-
-                <div className="flex space-x-4">
-                  <a
-                    href={project.demoUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-1 text-foreground/80 hover:text-primary transition-colors duration-300"
-                  >
-                    <ExternalLink size={18} />
-                    Live Demo
-                  </a>
-
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-1 text-foreground/80 hover:text-primary transition-colors duration-300"
-                  >
-                    <Github size={18} />
-                    GitHub
-                  </a>
-                </div>
-              </div>
-            </div>
-          ))}
+        <div>
+          <h4 className="mb-1 font-semibold">Candidate and recruiter tools</h4>
+          <p className="text-muted-foreground">I built job listings, candidate workflows and recruiter dashboards with React and Next.js, and connected them to REST APIs using Node.js and Express.</p>
         </div>
-
-        {/* CTA */}
-        <div className="text-center mt-12">
-          <a
-            className="cosmic-button w-fit flex items-center mx-auto gap-2"
-            target="_blank"
-            href="https://github.com/SiddhantaShrestha"
-          >
-            Check My Github <ArrowRight size={16} />
-          </a>
+        <div className="flex flex-wrap gap-5 pt-1">
+          <a className={linkStyle} href="https://recruitnepal.com" target="_blank" rel="noreferrer">Visit Recruit Nepal <ArrowUpRight size={16}/></a>
+          <a className={linkStyle} href="https://github.com/recruitnepal" target="_blank" rel="noreferrer">Team GitHub <Github size={16}/></a>
         </div>
       </div>
-    </section>
-  );
-};
+      <figure className="min-w-0 border-t p-4 sm:p-8 md:col-span-2">
+        <a href={applicantReviewImage} target="_blank" rel="noreferrer" className="group block rounded-lg" aria-label="Open the full-size applicant review screenshot in a new tab">
+          <img
+            src={applicantReviewImage}
+            width={1577}
+            height={541}
+            loading="lazy"
+            alt="Two demo applicants for a Motion Graphic Designer vacancy, with job matches, AI recommendations, and hiring-stage controls."
+            className="block h-auto w-full rounded-lg border"
+          />
+          <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-primary underline underline-offset-4">
+            View full size <ArrowUpRight size={15} aria-hidden="true" />
+          </span>
+        </a>
+        <figcaption className="mt-2 text-sm leading-relaxed text-muted-foreground">
+          Recruit Nepal’s applicant review dashboard on the test server. Recruiters can review AI suggestions and update each applicant’s hiring stage.
+        </figcaption>
+      </figure>
+    </article>
+    <article id="citedocs" className="mt-6 grid gap-6 rounded-2xl border bg-card p-4 sm:p-8 md:grid-cols-2 md:gap-10">
+      <div className="space-y-4">
+        <p className="text-sm font-semibold text-primary">Personal project · AI document search</p>
+        <h3 className="text-3xl font-bold">CiteDocs</h3>
+        <p className="text-muted-foreground">I built a Q&amp;A app that searches documents a teammate has permission to read and cites the passage behind each answer.</p>
+        <p className="text-muted-foreground">I tested how passage length affected retrieval. With pgvector and 300-character passages, the expected source appeared in the first five results for 36 of 41 questions (87.8% Hit@5).</p>
+        <div className="flex flex-wrap gap-5">
+          <a className={linkStyle} href="https://citedocs.vercel.app/" target="_blank" rel="noreferrer">Try CiteDocs <ArrowUpRight size={16}/></a>
+          <a className={linkStyle} href="https://github.com/SiddhantaShrestha/citedocs" target="_blank" rel="noreferrer">Source code <Github size={16}/></a>
+        </div>
+        <div className="border-l-2 border-primary pl-4">
+          <h4 className="text-sm font-semibold text-primary">Example from the retrieval tests</h4>
+          <p className="mt-2 font-semibold">When are engineering bonuses paid?</p>
+          <p className="text-muted-foreground">On the last Friday of April.</p>
+        </div>
+      </div>
+      <RetrievalComparison />
+    </article>
+    <div className="mt-6 grid gap-5 md:grid-cols-2">
+      <article id="research-eval-agent" className="flex flex-col gap-3 rounded-xl border bg-card p-6">
+        <p className="text-sm font-semibold text-primary">Applied AI · Python and Groq</p>
+        <h3 className="text-2xl font-semibold">Research Evaluation Agent</h3>
+        <p className="text-muted-foreground">I built a pipeline that drafts a report from source documents, scores the draft, and revises it when the score falls below a threshold.</p>
+        <p className="text-muted-foreground">Each run saves the retrieved passages, critique, and a final check of which claims the sources support. A reviewer can trace how the report changed.</p>
+        <div className="mt-auto flex flex-wrap gap-5 pt-2">
+          <a href="https://github.com/SiddhantaShrestha/autonomous-research-eval-agent/blob/main/src/pipeline.py" className={linkStyle} target="_blank" rel="noreferrer">Inspect the pipeline <ArrowUpRight size={16}/></a>
+          <a href="https://github.com/SiddhantaShrestha/autonomous-research-eval-agent" className={linkStyle} target="_blank" rel="noreferrer" aria-label="Research Evaluation Agent repository">GitHub <Github size={16}/></a>
+        </div>
+      </article>
+      <article id="recipenest" className="flex flex-col gap-3 rounded-xl border bg-card p-6">
+        <img src="/projects/RecipeNest.png" alt="RecipeNest recipe browsing interface" loading="lazy" className="aspect-[3/1] w-full rounded-md object-cover object-top" />
+        <h3 className="text-2xl font-semibold">RecipeNest</h3>
+        <p className="text-muted-foreground">I built a recipe platform with paid subscriptions through eSewa. The Express backend handles payment initiation, verification, and transaction status.</p>
+        <div className="mt-auto flex flex-wrap gap-5 pt-2">
+          <a href="https://recipenest-nepal.onrender.com/" className={linkStyle} target="_blank" rel="noreferrer">Open RecipeNest <ArrowUpRight size={16}/></a>
+          <a href="https://github.com/SiddhantaShrestha/RecipeNest-Nepal" className={linkStyle} target="_blank" rel="noreferrer" aria-label="RecipeNest repository">GitHub <Github size={16}/></a>
+        </div>
+      </article>
+    </div>
+  </section>
+);

@@ -1,58 +1,44 @@
-import { Briefcase, Calendar } from "lucide-react";
+import { Calendar } from "lucide-react";
 
 const experiences = [
   {
-    role: "Junior Full Stack Developer & Tech Support",
-    company: "Intern Nepal / Recruit Nepal",
-    period: "2025 - Present",
-    location: "Lalitpur, Nepal (Hybrid)",
-    points: [
-      "Built and maintained responsive frontend interfaces using React.js, Next.js, and Tailwind CSS for a live product.",
-      "Developed and integrated RESTful APIs with Node.js and Express for key recruiter and candidate flows.",
-      "Contributed to Recruit Nepal, a live recruitment platform used by 1000+ active users across Nepal.",
-      "Implemented core features including job listings, candidate workflows, and recruiter dashboards.",
-      "Handled deployment and production setup tasks such as hosting, domain configuration, and environment setup.",
-      "Improved UI performance through iterative optimizations, reducing load time by around 20%.",
-    ], // derived from CV :contentReference[oaicite:0]{index=0}
+    "role": "Full Stack Developer",
+    "company": "Intern Nepal / Recruit Nepal",
+    "period": "Jun 2025 – present",
+    "location": "Lalitpur, Nepal",
+    "points": [
+      "Built reusable React and Next.js interfaces for candidates and recruiters and integrated REST APIs with Node.js and Express.",
+      "Worked with Azure AI Document Intelligence on CV extraction and refined prompts used in recruitment workflows."
+    ]
   },
   {
-    role: "Project Management & Tech Support Intern",
-    company: "Intern Nepal / Recruit Nepal",
-    period: "2024 - 2025",
-    location: "Lalitpur, Nepal",
-    points: [
-      "Led a recruitment CRM development project over 6 months from planning through MVP delivery.",
-      "Managed tasks and team workflows with Trello to improve visibility, ownership, and productivity.",
-      "Applied Agile practices including sprint planning, execution, and retrospectives to keep releases on track.",
-      "Prepared and maintained project documentation, including project charters and meeting reports.",
-      "Coordinated between technical and non-technical stakeholders for smooth project execution.",
-    ], // derived from CV :contentReference[oaicite:1]{index=1}
+    "role": "Frontend and Project Tech Support Intern",
+    "company": "Intern Nepal / Recruit Nepal",
+    "period": "Jul 2024 – Jan 2025",
+    "location": "Lalitpur, Nepal",
+    "points": [
+      "Led a recruitment CRM project from planning to MVP delivery over six months.",
+      "Coordinated sprints in Trello and documented decisions for technical and non-technical stakeholders."
+    ]
   },
   {
-    role: "Customer Success Representative Intern",
-    company: "ING Skill Academy",
-    period: "Feb 2024 - Jun 2024",
-    location: "New Baneshwor, Kathmandu",
-    points: [
-      "Supported customer onboarding and handled user queries to improve overall customer experience.",
-      "Collected customer feedback and collaborated with internal teams to improve service quality.",
-      "Contributed to customer satisfaction and retention initiatives through timely issue resolution.",
-    ], // derived from CV :contentReference[oaicite:2]{index=2}
-  },
+    "role": "Customer Success Representative",
+    "company": "ING Skill Academy",
+    "period": "Sep 2023 – Feb 2024",
+    "location": "Kathmandu, Nepal",
+    "points": [
+      "Supported onboarding, answered customer questions and shared feedback with internal teams."
+    ]
+  }
 ];
 
 export const ExperienceSection = () => {
   return (
-    <section id="experience" className="py-24 px-4 relative">
-      <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
+    <section id="experience" className="relative mx-auto max-w-6xl px-6 py-12 text-left sm:px-10">
+      <div className="w-full">
+        <h2 className="mb-6 text-3xl font-bold">
           Work <span className="text-primary">Experience</span>
         </h2>
-
-        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Hands-on experience shipping real products, managing projects, and
-          supporting users across tech and customer-facing roles.
-        </p>
 
         <div className="relative border-l border-border/60 pl-6 space-y-10">
           {experiences.map((exp, index) => (
@@ -73,7 +59,7 @@ export const ExperienceSection = () => {
                     </p>
                   </div>
 
-                  <div className="text-right text-xs md:text-sm text-muted-foreground flex flex-col items-end gap-1">
+                  <div className="flex flex-col gap-1 text-sm text-muted-foreground">
                     <span className="inline-flex items-center gap-1">
                       <Calendar className="h-4 w-4" />
                       {exp.period}
@@ -90,11 +76,6 @@ export const ExperienceSection = () => {
                     </li>
                   ))}
                 </ul>
-
-                <div className="mt-4 inline-flex items-center gap-2 text-xs text-primary/80">
-                  <Briefcase className="h-4 w-4" />
-                  <span>Full-stack & product-focused experience</span>
-                </div>
               </div>
             </div>
           ))}

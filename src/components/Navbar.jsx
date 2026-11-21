@@ -1,121 +1,79 @@
-import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { ThemeToggle } from "./ThemeToggle";
 
-const navItems = [
-  { name: "Home", href: "#hero" },
-  { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
-  { name: "Experience", href: "#experience" },
-  { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
+const sections = [
+  ["Home", "#hero"], ["Work", "#projects"], ["About", "#about"],
+  ["Skills", "#skills"], ["Experience", "#experience"], ["Contact", "#contact"],
 ];
 
 export const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const dialog = useRef(null);
+  const [open, setOpen] = useState(false);
+  const [current, setCurrent] = useState("#hero");
 
-  // lock body scroll when menu is open
   useEffect(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-
+    const targets = sections.map(([, href]) => document.querySelector(href));
+    let frame;
+    const update = () => {
+      const marker = Math.min(window.innerHeight * 0.35, 240);
+      let active = "#hero";
+      for (const target of targets) {
+        if (target && target.getBoundingClientRect().top <= marker) active = "#" + target.id;
+      }
+      if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2) active = "#contact";
+      setCurrent(active);
+      frame = undefined;
+    };
+    const schedule = () => {
+      if (frame === undefined) frame = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule);
     return () => {
-      document.body.style.overflow = "";
+      window.removeEventListener("scroll", schedule);
+      window.removeEventListener("resize", schedule);
+      cancelAnimationFrame(frame);
     };
-  }, [isMenuOpen]);
-
-  // change style on scroll
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (!open) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const desktop = window.matchMedia("(min-width: 768px)");
+    const onResize = () => {
+      if (desktop.matches) dialog.current?.close();
+    };
+    desktop.addEventListener("change", onResize);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      desktop.removeEventListener("change", onResize);
+    };
+  }, [open]);
+
   return (
-    <>
-      {/* TOP NAV BAR */}
-      <nav
-        className={cn(
-          "fixed inset-x-0 top-0 z-40 transition-all duration-300",
-          isScrolled
-            ? "py-3 bg-background/80 backdrop-blur-md shadow-xs"
-            : "py-5"
-        )}
-      >
-        <div className="container flex items-center justify-between">
-          <a
-            className="text-xl font-bold text-primary flex items-center"
-            href="#hero"
-          >
-            <span className="relative z-10">
-              <span className="text-glow text-foreground"> Siddhanta </span>{" "}
-              Portfolio
-            </span>
-          </a>
-
-          {/* desktop nav */}
-          <div className="hidden md:flex space-x-8">
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="text-foreground/80 hover:text-primary transition-colors duration-300"
-              >
-                {item.name}
-              </a>
-            ))}
-          </div>
-
-          {/* mobile menu button */}
-          <button
-            onClick={() => setIsMenuOpen(true)}
-            className="md:hidden p-2 text-foreground"
-            aria-label="Open Menu"
-          >
-            <Menu size={24} />
-          </button>
-        </div>
-      </nav>
-
-      {/* MOBILE FULLSCREEN OVERLAY (separate from nav) */}
-      <div
-        className={cn(
-          "fixed inset-0 z-50 flex flex-col items-center justify-center bg-background md:hidden transition-opacity duration-300",
-          isMenuOpen
-            ? "opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none"
-        )}
-      >
-        {/* Close button */}
-        <button
-          onClick={() => setIsMenuOpen(false)}
-          className="absolute top-5 right-5 p-2 text-foreground"
-          aria-label="Close Menu"
-        >
-          <X size={24} />
-        </button>
-
-        {/* Links */}
-        <div className="flex flex-col space-y-8 text-xl text-center">
-          {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="text-foreground/80 hover:text-primary transition-colors duration-300"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {item.name}
-            </a>
-          ))}
+    <header className="fixed inset-x-0 top-0 z-40 border-b border-border/60 bg-background/95 backdrop-blur">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-6 py-3 sm:px-10">
+        <a href="#hero" className="text-lg font-bold">Siddhanta<span className="text-primary"> Shrestha</span></a>
+        <div className="flex items-center gap-2 md:gap-4">
+          <nav aria-label="Main navigation" className="hidden items-center gap-4 text-sm md:flex lg:gap-6">
+            {sections.map(([label, href]) => <a key={href} href={href} aria-current={current === href ? "location" : undefined} className="hover:text-primary">{label}</a>)}
+          </nav>
+          <ThemeToggle />
+          <button aria-label="Open menu" aria-controls="mobile-menu" aria-expanded={open}
+            onClick={() => { dialog.current.showModal(); setOpen(true); }}
+            className="rounded-full p-2 md:hidden"><Menu /></button>
         </div>
       </div>
-    </>
+      <dialog ref={dialog} id="mobile-menu" aria-label="Navigation menu" onClose={() => setOpen(false)}
+        className="fixed inset-0 m-0 h-dvh max-h-none w-full max-w-none bg-background text-foreground">
+        <button aria-label="Close menu" onClick={() => dialog.current.close()} className="absolute right-6 top-4 rounded-full p-2"><X /></button>
+        <nav aria-label="Mobile navigation" className="flex min-h-full flex-col items-center justify-center gap-6 py-16 text-xl">
+          {sections.map(([label, href]) => <a key={href} href={href} aria-current={current === href ? "location" : undefined} onClick={() => dialog.current.close()}>{label}</a>)}
+        </nav>
+      </dialog>
+    </header>
   );
 };

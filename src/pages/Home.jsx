@@ -1,6 +1,4 @@
 import { Navbar } from "../components/Navbar";
-import { ThemeToggle } from "../components/ThemeToggle";
-import { StarBackground } from "@/components/StarBackground";
 import { HeroSection } from "../components/HeroSection";
 import { AboutSection } from "../components/AboutSection";
 import { SkillsSection } from "../components/SkillsSection";
@@ -12,20 +10,15 @@ import { ExperienceSection } from "../components/ExperienceSection";
 export const Home = () => {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
-      {/* Theme Toggle */}
-      <ThemeToggle />
-      {/* Background Effects */}
-      <StarBackground />
-
-      {/* Navbar */}
+      <a className="skip-link" href="#main-content">Skip to content</a>
       <Navbar />
       {/* Main Content */}
-      <main className="pt-20 md:pt-28">
+      <main id="main-content" tabIndex={-1} className="pt-16">
         <HeroSection />
+        <ProjectsSection />
         <AboutSection />
         <SkillsSection />
         <ExperienceSection />
-        <ProjectsSection />
         <ContactSection />
       </main>
 
