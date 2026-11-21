@@ -1,8 +1,10 @@
 import { ArrowUpRight, Github } from "lucide-react";
 import { RetrievalComparison } from "./RetrievalComparison";
+import { RevisionPreview } from "./RevisionPreview";
 
 const linkStyle = "inline-flex items-center gap-1.5 rounded-sm font-medium text-primary underline decoration-primary/50 underline-offset-4 hover:decoration-current";
 const applicantReviewImage = "/projects/recruit-nepal-applicant-review.png";
+const linkedInPostImage = "/projects/recruit-nepal-linkedin-post.png";
 
 export const ProjectsSection = () => (
   <section id="projects" className="relative mx-auto max-w-6xl px-6 py-12 text-left sm:px-10">
@@ -66,14 +68,40 @@ export const ProjectsSection = () => (
       <RetrievalComparison />
     </article>
     <div className="mt-6 grid gap-5 md:grid-cols-2">
+      <article id="job-post-automation" className="flex flex-col gap-3 rounded-xl border bg-card p-6">
+        <p className="text-sm font-semibold text-primary">Workflow automation · n8n and Gemini</p>
+        <h3 className="text-2xl font-semibold">Job Post Automation</h3>
+        <p className="text-muted-foreground">A vacancy arrives by webhook. The workflow checks the required fields, uses Gemini to write a caption and generate a poster with the company logo from Google Drive, then sends both to LinkedIn.</p>
+        <figure>
+          <a href={linkedInPostImage} target="_blank" rel="noreferrer" aria-label="View the published LinkedIn post at full size" className="flex justify-center rounded-lg border bg-background p-3 hover:border-primary">
+            <img src={linkedInPostImage} width={573} height={708} loading="lazy" alt="Recruit Nepal’s LinkedIn caption and branded hiring poster for a remote Client Support & Sales Coordinator." className="block h-auto max-h-80 w-auto max-w-full rounded object-contain" />
+          </a>
+          <figcaption className="mt-2 text-sm text-muted-foreground">Published to Recruit Nepal’s LinkedIn page through this workflow.</figcaption>
+        </figure>
+        <div className="mt-auto flex flex-wrap gap-5 pt-2">
+          <a href="/projects/job-post-automation.png" className={linkStyle} target="_blank" rel="noreferrer">View workflow diagram <ArrowUpRight size={16}/></a>
+          <a href="https://github.com/SiddhantaShrestha/n8n-linkedin-job-post-automation" className={linkStyle} target="_blank" rel="noreferrer" aria-label="Job Post Automation repository">GitHub <Github size={16}/></a>
+        </div>
+      </article>
       <article id="research-eval-agent" className="flex flex-col gap-3 rounded-xl border bg-card p-6">
         <p className="text-sm font-semibold text-primary">Applied AI · Python and Groq</p>
         <h3 className="text-2xl font-semibold">Research Evaluation Agent</h3>
-        <p className="text-muted-foreground">I built a pipeline that drafts a report from source documents, scores the draft, and revises it when the score falls below a threshold.</p>
-        <p className="text-muted-foreground">Each run saves the retrieved passages, critique, and a final check of which claims the sources support. A reviewer can trace how the report changed.</p>
+        <p className="text-muted-foreground">I built a Python pipeline that drafts research reports from source documents. An evaluator scores each draft on relevance, completeness, clarity, and use of evidence.</p>
+        <RevisionPreview />
         <div className="mt-auto flex flex-wrap gap-5 pt-2">
           <a href="https://github.com/SiddhantaShrestha/autonomous-research-eval-agent/blob/main/src/pipeline.py" className={linkStyle} target="_blank" rel="noreferrer">Inspect the pipeline <ArrowUpRight size={16}/></a>
           <a href="https://github.com/SiddhantaShrestha/autonomous-research-eval-agent" className={linkStyle} target="_blank" rel="noreferrer" aria-label="Research Evaluation Agent repository">GitHub <Github size={16}/></a>
+        </div>
+      </article>
+      <article id="youtube-transcript-qa" className="flex flex-col gap-3 rounded-xl border bg-card p-6">
+        <img src="/projects/youtube-chatbot.png" width={1649} height={942} loading="lazy" alt="YouTube Chatbot’s Streamlit interface with the video URL field, Load video button, and chat input." className="h-auto w-full rounded-md border" />
+        <p className="text-sm font-semibold text-primary">Video Q&amp;A · Streamlit and LangChain</p>
+        <h3 className="text-2xl font-semibold">YouTube Chatbot</h3>
+        <p className="text-muted-foreground">Paste a YouTube URL or video ID to summarize a video or ask what the speaker said about a specific topic. The app uses the video’s English captions as its source.</p>
+        <p className="text-muted-foreground">Summaries draw on the broader transcript. For specific questions, the app searches a FAISS index built with Hugging Face embeddings and sends the four closest passages to the model through OpenRouter.</p>
+        <div className="mt-auto flex flex-wrap gap-5 pt-2">
+          <a href="https://youtube-chatbot-using-langchain-bqqidajkj5sc4kcenzlktw.streamlit.app/" className={linkStyle} target="_blank" rel="noreferrer">Try YouTube Chatbot <ArrowUpRight size={16}/></a>
+          <a href="https://github.com/SiddhantaShrestha/YouTube-Chatbot-using-LangChain" className={linkStyle} target="_blank" rel="noreferrer" aria-label="YouTube Chatbot source code">Source code <Github size={16}/></a>
         </div>
       </article>
       <article id="recipenest" className="flex flex-col gap-3 rounded-xl border bg-card p-6">
