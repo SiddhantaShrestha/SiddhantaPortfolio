@@ -25,7 +25,6 @@ export const ContactSection = () => {
     e.preventDefault();
     setSubmitMessage("");
     setIsSubmitting(true);
-    setSubmitMessage("");
 
     const form = e.currentTarget;
     const formData = new FormData(form);
@@ -36,11 +35,8 @@ export const ContactSection = () => {
       return;
     }
 
-    //  subject line
-    if (!formData.get("_subject")) {
-      const name = formData.get("name") || "New Contact";
-      formData.append("_subject", `Portfolio contact from ${name}`);
-    }
+    const name = formData.get("name") || "New Contact";
+    formData.set("_subject", `Portfolio contact from ${name}`);
 
     try {
       const res = await fetch("https://formspree.io/f/mblprwkz", {
@@ -102,8 +98,6 @@ export const ContactSection = () => {
               tabIndex={-1}
               autoComplete="off"
             />
-
-            <input type="hidden" name="_subject" value="" />
 
             <div>
               <label

@@ -2,7 +2,7 @@ const skills = [
   { title: "AI retrieval & evaluation", stack: "Embeddings, semantic search with pgvector, and retrieval testing for a RAG app using Ollama and Gemini.", project: "CiteDocs", href: "#citedocs" },
   { title: "Web interfaces & APIs", stack: "Responsive interfaces with React and Next.js, backed by Node.js and Express APIs.", project: "Recruit Nepal", href: "#recruit-nepal" },
   { title: "Document AI & prompting", stack: "CV extraction with Azure AI Document Intelligence and prompt refinement for recruitment workflows.", project: "Recruit Nepal", href: "#recruit-nepal" },
-  { title: "Payment integration", stack: "Subscription checkout, payment verification, and transaction status with Express and eSewa.", project: "RecipeNest", href: "#recipenest" },
+  { title: "Workflow automation", stack: "Connected vacancy webhooks, Gemini, Google Drive, and LinkedIn in n8n to turn job details into published hiring posts.", project: "Job Post Automation", href: "#job-post-automation" },
 ];
 
 export const SkillsSection = () => (

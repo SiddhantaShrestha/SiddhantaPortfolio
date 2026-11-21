@@ -7,8 +7,9 @@ const experiences = [
     "period": "Jun 2025 – present",
     "location": "Lalitpur, Nepal",
     "points": [
-      "Built reusable React and Next.js interfaces for candidates and recruiters and integrated REST APIs with Node.js and Express.",
-      "Worked with Azure AI Document Intelligence on CV extraction and refined prompts used in recruitment workflows."
+      "Built job listings, candidate workflows, and recruiter dashboards with React, Next.js, Tailwind CSS, and shadcn/ui for Recruit Nepal, a platform with 7,597 unique users as of November 2026.",
+      "Developed and integrated the Node.js and Express REST APIs behind candidate and recruiter workflows.",
+      "Worked with Azure AI Document Intelligence to extract information from CVs and refined prompts used in AI-assisted recruitment."
     ]
   },
   {
@@ -17,8 +18,9 @@ const experiences = [
     "period": "Jul 2024 – Jan 2025",
     "location": "Lalitpur, Nepal",
     "points": [
-      "Led a recruitment CRM project from planning to MVP delivery over six months.",
-      "Coordinated sprints in Trello and documented decisions for technical and non-technical stakeholders."
+      "Led a six-month recruitment CRM project from planning through delivery of its first working version.",
+      "Tracked tasks and ownership in Trello throughout each sprint, from planning through the team retrospective.",
+      "Maintained the project charter and meeting reports to keep developers and non-technical stakeholders aligned on decisions."
     ]
   },
   {
@@ -27,7 +29,8 @@ const experiences = [
     "period": "Sep 2023 – Feb 2024",
     "location": "Kathmandu, Nepal",
     "points": [
-      "Supported onboarding, answered customer questions and shared feedback with internal teams."
+      "Guided customers through onboarding and answered questions as they started using the service.",
+      "Collected customer feedback and shared it with internal teams to inform service improvements and retention efforts."
     ]
   }
 ];

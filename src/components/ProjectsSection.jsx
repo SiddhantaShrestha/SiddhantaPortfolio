@@ -27,7 +27,6 @@ export const ProjectsSection = () => (
         </div>
         <div className="flex flex-wrap gap-5 pt-1">
           <a className={linkStyle} href="https://recruitnepal.com" target="_blank" rel="noreferrer">Visit Recruit Nepal <ArrowUpRight size={16}/></a>
-          <a className={linkStyle} href="https://github.com/recruitnepal" target="_blank" rel="noreferrer">Team GitHub <Github size={16}/></a>
         </div>
       </div>
       <figure className="min-w-0 border-t p-4 sm:p-8 md:col-span-2">
@@ -56,7 +55,7 @@ export const ProjectsSection = () => (
         <p className="text-muted-foreground">I built a Q&amp;A app that searches documents a teammate has permission to read and cites the passage behind each answer.</p>
         <p className="text-muted-foreground">I tested how passage length affected retrieval. With pgvector and 300-character passages, the expected source appeared in the first five results for 36 of 41 questions (87.8% Hit@5).</p>
         <div className="flex flex-wrap gap-5">
-          <a className={linkStyle} href="https://citedocs.vercel.app/" target="_blank" rel="noreferrer">Try CiteDocs <ArrowUpRight size={16}/></a>
+          <a className={linkStyle} href="https://citedocs.vercel.app/" target="_blank" rel="noreferrer">Open CiteDocs (sign in) <ArrowUpRight size={16}/></a>
           <a className={linkStyle} href="https://github.com/SiddhantaShrestha/citedocs" target="_blank" rel="noreferrer">Source code <Github size={16}/></a>
         </div>
         <div className="border-l-2 border-primary pl-4">
